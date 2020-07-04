@@ -18,6 +18,11 @@ ExecStart={{ k3s_install_dir }}/k3s
     {% if k3s_https_port != 6443 %}
         --https-listen-port {{ k3s_https_port }}
     {% endif %}
+    {% if k3s_disable_components is defined and k3s_disable_components is iterable %}
+        {% for disable_component in k3s_disable_components %}
+            --disable {{ disable_component }}
+        {% endfor %}
+    {% endif %}
     {% if k3s_disable_scheduler %}
         --disable-scheduler
     {% endif %}

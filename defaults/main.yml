@@ -84,6 +84,9 @@ k3s_no_local_storage: false
 # Do not deploy metrics server
 k3s_no_metrics_server: false
 
+# Disable deploy packaged components
+k3s_disable_components: []
+
 # Disable default k3s scheduler
 k3s_disable_scheduler: false
 
